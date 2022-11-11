@@ -1,4 +1,5 @@
 package com.company;
+
 import java.io.*;
 import java.math.*;
 import java.security.*;
@@ -8,6 +9,7 @@ import java.util.concurrent.*;
 import java.util.function.*;
 import java.util.regex.*;
 import java.util.stream.*;
+
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
@@ -37,12 +39,12 @@ class Result {
                 phaseTwo.parallelStream().map(x -> String.join("", x)).collect(toList());
     }
 
-    private static List<String[]> explode(List<String[]> arr){
+    private static List<String[]> explode(List<String[]> arr) {
         List<String[]> result = new ArrayList<>();
-        for(int row = 0; row < arr.size(); row ++){
+        for (int row = 0; row < arr.size(); row++) {
             String[] buff = new String[arr.get(row).length];
-            for(int col = 0; col < arr.get(row).length; col++){
-                if(arr.get(row)[col].equals("O")) {
+            for (int col = 0; col < arr.get(row).length; col++) {
+                if (arr.get(row)[col].equals("O")) {
                     buff[col] = ".";
                 } else {
                     boolean explode =
@@ -50,7 +52,7 @@ class Result {
                                     (row != arr.size() - 1 && arr.get(row + 1)[col].equals("O")) ||
                                     (col != 0 && arr.get(row)[col - 1].equals("O")) ||
                                     (col != arr.get(row).length - 1 && arr.get(row)[col + 1].equals("O"));
-                    if(explode)
+                    if (explode)
                         buff[col] = ".";
                     else
                         buff[col] = "O";
@@ -62,7 +64,6 @@ class Result {
     }
 
 }
-
 
 
 public class Solution {
