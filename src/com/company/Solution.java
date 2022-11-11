@@ -24,6 +24,7 @@ class Result {
      *  2. STRING_ARRAY grid
      */
 
+
     // Write your code here
     public static List<String> bomberMan(int n, List<String> grid) {
         if (n == 0 || n == 1) {
